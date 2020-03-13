@@ -1,0 +1,37 @@
+version: '3.4'
+services:
+  
+  api.alpha:
+    image: api.alpha:latest
+    build:
+      context: .
+      dockerfile: API1/Dockerfile
+    depends_on:
+      - data
+    networks:
+      - mynetwork
+      
+  api.omega:
+    image: api.omega:latest
+    build:
+      context: .
+      dockerfile: API2/Dockerfile
+    depends_on:
+      - data
+    networks:
+      - mynetwork
+      
+  data:
+    image: microsoft/mssql-server-windows-developer
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+        - "5433:1433"
+    networks:
+      - mynetwork
+   
+networks:
+  mynetwork:
+    external:
+      name: nat
