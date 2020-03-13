@@ -1,0 +1,1 @@
+dotnet .\bin\Debug\netcoreapp3.1\DatabaseMigration.dll --ConnectionString="Data Source=localhost,5433;Initial Catalog=master;Persist Security Info=True;User Id=sa;Password=Pass@word;MultipleActiveResultSets=True;App=DatabaseMigration" --PreviewReportPath="C:\Projects\Labs\Lab.NETFullwithDocker\DatabaseMigration\"

@@ -6,8 +6,6 @@ services:
     build:
       context: .
       dockerfile: API1/Dockerfile
-    depends_on:
-      - data
     networks:
       - mynetwork
       
@@ -16,8 +14,6 @@ services:
     build:
       context: .
       dockerfile: API2/Dockerfile
-    depends_on:
-      - data
     networks:
       - mynetwork
       
@@ -30,7 +26,7 @@ services:
         - "5433:1433"
     networks:
       - mynetwork
-   
+
 networks:
   mynetwork:
     external:
