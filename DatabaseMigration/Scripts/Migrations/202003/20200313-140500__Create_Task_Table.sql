@@ -1,4 +1,4 @@
-﻿CREATE TABLE [TEST].[Task] (
+﻿CREATE TABLE [app].[Task] (
     Id INTEGER IDENTITY NOT NULL,
     Description VARCHAR(100) NOT NULL
 );

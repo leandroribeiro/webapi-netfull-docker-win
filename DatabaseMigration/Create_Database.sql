@@ -1,0 +1,14 @@
+USE master
+GO
+
+IF NOT EXISTS (
+ SELECT name
+ FROM sys.databases
+ WHERE name = N'TodoDB'
+)
+ CREATE DATABASE [TodoDB];
+GO
+
+IF SERVERPROPERTY('ProductVersion') > '12'
+ ALTER DATABASE [TodoDB] SET QUERY_STORE=ON;
+GO

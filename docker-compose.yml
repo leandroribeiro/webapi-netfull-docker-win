@@ -17,7 +17,7 @@ services:
     networks:
       - mynetwork
       
-  data:
+  sql.data:
     image: microsoft/mssql-server-windows-developer
     environment:
       - SA_PASSWORD=Pass@word

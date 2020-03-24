@@ -23,8 +23,10 @@ echo 1/2) Gerando relatorio de scripts pendentes de aplicacao.
 echo.
 
 dotnet .\bin\Debug\netcoreapp3.1\DatabaseMigration.dll ^
-    --ConnectionString="Data Source=localhost,5433;Initial Catalog=master;Persist Security Info=True;User Id=sa;Password=Pass@word;MultipleActiveResultSets=True;App=DatabaseMigration" ^
-    --PreviewReportPath="%_%"
+    --source-scripts="D:\\PROJECTS\\github\\webapi-netfull-docker-win\\DatabaseMigration\\Scripts\\" ^
+    --connection-string="Data Source=localhost,5433;Initial Catalog=TodoDB;Persist Security Info=True;User Id=sa;Password=Pass@word;MultipleActiveResultSets=True;App=DatabaseMigration" ^
+    --output-report-path="D:\\PROJECTS\\github\\webapi-netfull-docker-win\\DatabaseMigration\\"
+    
 
 REM ################################
 REM Relatorio
