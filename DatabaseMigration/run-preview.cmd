@@ -1,17 +1,19 @@
 @echo off
 
-set _=%CD%
+set _=%CD%\Report\
+set reportFile=%_%\UpgradeReport.html
+set scriptFile=%_%\UpgradeScript.sql
 
 REM ################################
 REM Limpeza de arquivos
 REM ################################
 
-if exist %_%\UpgradeReport.html ( 
- del /f %_%\UpgradeReport.html
+if exist %reportFile% ( 
+ del /f %reportFile%
 ) 
 
-if exist %_%\script.sql ( 
- del /f %_%\script.sql
+if exist %scriptFile% ( 
+ del /f %scriptFile%
 )
 
 REM ################################
@@ -25,7 +27,7 @@ echo.
 dotnet .\bin\Debug\netcoreapp3.1\DatabaseMigration.dll ^
     --source-scripts="D:\\PROJECTS\\github\\webapi-netfull-docker-win\\DatabaseMigration\\Scripts\\" ^
     --connection-string="Data Source=localhost,5433;Initial Catalog=TodoDB;Persist Security Info=True;User Id=sa;Password=Pass@word;MultipleActiveResultSets=True;App=DatabaseMigration" ^
-    --output-report-path="D:\\PROJECTS\\github\\webapi-netfull-docker-win\\DatabaseMigration\\"
+    --output-report-path=%_%
     
 
 REM ################################
@@ -36,8 +38,8 @@ echo.
 echo 2/2) Abrindo relatorio no navegador.
 echo.
 
-echo Relatorio : %_%\UpgradeReport.html
-echo   Scripts : %_%\script.sql
+echo Relatorio : %reportFile%
+echo   Scripts : %scriptFile%
 echo.
 
-start %_%\UpgradeReport.html
+start %reportFile%

@@ -18,6 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Report" />
       <Folder Include="Scripts\PreDeployment" />
     </ItemGroup>
     
